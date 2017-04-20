@@ -64,28 +64,28 @@ class Board(object):
     def check_diagonal(self, mark):
         length = len(self.grid)
         # left to bottom right
-        x = 0
-        y = 0
+        xL = 0
+        yL = 0
 
         # right to bottom left
-        a = 0
-        b = 2
+        xR = 0
+        yR = 2
 
         # Pass from top left to bottom right
         left_marks = []
         right_marks = []
 
-        while x < length and y < length:
-            spot_left = self.grid[x][y]
-            spot_right = self.grid[a][b]
+        while xL < length and yL < length:
+            spot_left = self.grid[xL][yL]
+            spot_right = self.grid[xR][yR]
 
             left_marks.append(spot_left == mark)
             right_marks.append(spot_right == mark)
 
-            x += 1
-            y += 1
-            a += 1
-            b -= 1
+            xL += 1
+            yL += 1
+            xR += 1
+            yR -= 1
 
         return all(left_marks) or all(right_marks)
 
