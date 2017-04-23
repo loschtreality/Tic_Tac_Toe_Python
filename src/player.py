@@ -9,3 +9,7 @@ class Player(object):
     def place_piece(self):
         resp = input("select your coordinates: ")
         return list(map(lambda num: int(num), resp.split(",")))
+
+
+if __name__ == '__main__':
+    Player()

@@ -104,3 +104,17 @@ class Board(object):
             grid.append(col_row)
 
         return grid
+
+    def print_board(self):
+        for row in self.grid:
+            new_str = ""
+            for column in row:
+                if column is None:
+                    new_str += "_\t"
+                else:
+                    new_str += "{:s}\t".format(column)
+            print(new_str)
+
+
+if __name__ == '__main__':
+    Board()

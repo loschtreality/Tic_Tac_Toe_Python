@@ -1,12 +1,19 @@
+from board import Board
+from player import Player
+
+
 class Game(object):
     """
     Game class responsible for initializing the game. Requires an array of
     two players and a board
     """
 
-    def __init__(self, players=[]):
-        self.players = players  # mock for players
-        self.board = []  # mock for board
+    def __init__(self):
+        self.players = [
+            Player(name="p1", marker="x"),
+            Player(name="p2", marker="o")
+        ]
+        self.board = Board()
         self.play_index = 0
 
     def current_player(self):
@@ -30,6 +37,9 @@ class Game(object):
         loc = self.current_player.place_piece()
         self.board.place_piece(loc)
 
+    def print_board(self):
+        self.board.print_board
+
     def game_over(self):
         return self.board.check_winnner
 
@@ -48,6 +58,5 @@ class Game(object):
         print("You win {:s}!").format(prev_player)
 
 
-p1 = {"name": 'm', "mark": 'x'}
-p2 = {"name": 'l', "mark": 'y'}
-g = Game(players=[p1, p2])
+g = Game()
+g.take_turn()
